@@ -1,4 +1,4 @@
-export default (state, action) => {
+export default (state = [], action) => {
   // return 123;
   // return [];
 
@@ -9,6 +9,21 @@ export default (state, action) => {
   // return axios.get('/posts')
 
   // good
-  return state + action;
+  // return state + action;
+  
+  
+  // if (action.type === 'FETCH_POSTS') {
+  //   return action.payload;
+  // }
+
+  // return state;
+
+  switch (action.type) {
+    case 'FETCH_POSTS':
+      return action.payload;
+    default:
+      return state; 
+  }
+
 };
 
